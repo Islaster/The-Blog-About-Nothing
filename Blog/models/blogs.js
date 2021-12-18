@@ -5,6 +5,10 @@ const commentSchema = new Schema({
   content: {
     type: String,
   },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const blogSchema = new Schema(

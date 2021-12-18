@@ -32,5 +32,15 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  res.render("blogs/show", { title: "Blog", style: "style.css" });
+  Blog.findById(req.params.id, function (err, blog) {
+    if (err) {
+      console.log(err);
+      res.redirect("/blogs");
+    }
+    res.render("blogs/show", {
+      title: `${blog.title}`,
+      style: "style.css",
+      blog,
+    });
+  });
 }

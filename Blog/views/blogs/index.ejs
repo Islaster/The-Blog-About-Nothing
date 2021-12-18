@@ -1,4 +1,17 @@
 <%- include('../partials/header')%>
-<h1>All Blogs</h1>
-
+<table>
+  <thead>
+    <tr>
+      <th>All blogs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% blogs.forEach(function(b){ %>
+    <tr>
+      <td><a href="/blogs/<%= b._id%>"><%= b.title%></a></td>
+      <td><%= b.snippet%></td>
+    </tr>
+    <%});%>
+  </tbody>
+</table>
 <%- include('../partials/footer')%>

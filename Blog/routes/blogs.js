@@ -3,9 +3,10 @@ const blogsCtrl = require("../controllers/blogs");
 
 //Get Routes
 router.get("/new", blogsCtrl.new); //Create Page
-router.get("/", blogsCtrl.index); //All Blogs page
+router.get("/All", blogsCtrl.index); //All Blogs page
+router.get("/:id", blogsCtrl.show); //blog details
 
 //Post Routes
-router.post("/", blogsCtrl.create);
+router.post("/", blogsCtrl.create); //posting to index
 
 module.exports = router;
