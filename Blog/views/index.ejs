@@ -1,4 +1,35 @@
-<%- include('./partials/logInHeader') %>
-<h1><%= title %></h1>
-<p><%= title %> to nothing</p>
-<%- include('./partials/footer') %>
+<%- include('./partials/header') %>
+<div class="jumbotron">
+  <h1><%= title %></h1>
+  <p><%= title %> to nothing</p>
+  <p><a href="/blogs/All">Enter</a></p>
+</div>
+<h2>Features</h2>
+<div class="icons">
+  <div class="cards">
+    <div class="card" style="width: 9rem">
+      <img
+        src="https://www.iconpacks.net/icons/1/free-pin-icon-48-thumb.png"
+        class="card-img-top"
+      />
+      <div class="card-body-secondary">Track your comments and blogs</div>
+    </div>
+    <div class="card" style="width: 9rem">
+      <img
+        src="https://cdn.iconscout.com/icon/premium/png-256-thumb/interaction-46-1100852.png"
+        class="card-img-top"
+      />
+      <div class="card-body-secondary">interact with others blogs</div>
+    </div>
+    <div class="card" style="width: 9rem">
+      <img
+        src="https://cdn.imgbin.com/12/3/3/imgbin-computer-icons-video-editing-desktop-edit-icon-GRLi1xWmPBGfriw16qj6dvgaC.jpg"
+        class="card-img-top"
+      />
+      <div class="card-body-secondary">
+        edit and delete your blogs and comments
+      </div>
+    </div>
+  </div>
+  <%- include('./partials/footer') %>
+</div>

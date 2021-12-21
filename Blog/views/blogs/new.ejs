@@ -1,8 +1,16 @@
 <%- include('../partials/header')%>
 
 <form action="/blogs" method="POST">
-  <label for="title">Title</label>
-  <input type="text" name="title" required />
+  <div class="form-floating">
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      id="floatingInput"
+      placeholder="Title"
+    />
+    <label for="floatingInput">Title</label>
+  </div>
   <textarea
     name="snippet"
     id=""

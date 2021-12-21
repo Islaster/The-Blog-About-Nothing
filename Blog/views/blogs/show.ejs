@@ -5,9 +5,21 @@
 <% if(blog.comments.length > 0){%>
 <h2>Comments</h2>
 <% blog.comments.forEach(function(c){%>
-<p>c.content</p>
-<%});%> <%}%> <%- include('../partials/footer')%>
-<form action="/blogs/<%= blog._id%>" method="POST">
+<p><%= c.content%></p>  
+<%if(user && blog.author.equals(user._id)){%>
+<form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+  <button type="submit">X</button>
+</form>
+<form action="/comments/<%= c._id %>?_method=PUT" method="POST">
+  <input type="text" name="content" >
+  <button type="submit">edit Comment</button>
+</form>
+<%}%>
+<%});%> <%}%> 
+  <% if(user){%>
+<form action="/blogs/<%= blog._id%>/comments" method="POST">
   <textarea name="content" cols="30" rows="10"></textarea>
   <button type="submit">Add Comment</button>
 </form>
+<%}%>
+<%- include('../partials/footer')%>

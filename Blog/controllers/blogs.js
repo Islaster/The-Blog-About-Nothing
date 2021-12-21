@@ -4,6 +4,7 @@ module.exports = {
   new: newBlog,
   create,
   show,
+  delete: deleteBlog
 };
 
 function index(req, res) {
@@ -22,12 +23,15 @@ function newBlog(req, res) {
 
 function create(req, res) {
   const blog = new Blog(req.body);
+  console.log(req.user);
+  blog.author = req.user._id;
+
   blog.save(function (err) {
     if (err) {
       console.log(err);
       res.redirect("/blogs/new");
     }
-    res.redirect("/blogs");
+    res.redirect("/blogs/All");
   });
 }
 
@@ -43,4 +47,14 @@ function show(req, res) {
       blog,
     });
   });
+}
+
+function deleteBlog(req, res) {
+  Blog.findOneAndDelete(
+    // Ensue that the blog was created by the logged in user
+    {_id: req.params.id, author: req.user._id}, function(err) {
+      // Deleted blog, so must redirect to index
+      res.redirect('/blogs/All');
+    }
+  );
 }

@@ -9,7 +9,12 @@
     <% blogs.forEach(function(b){ %>
     <tr>
       <td><a href="/blogs/<%= b._id%>"><%= b.title%></a></td>
-      <td><%= b.snippet%></td>
+      <div class="container-sm container-sm-light">
+        <td><%= b.snippet%></td>
+        <form action="/blogs/<%= b._id%>?_method=DELETE" method="POST">
+          <td><button class="btn btn-secondary">X</button></td>
+        </form>
+      </div>
     </tr>
     <%});%>
   </tbody>

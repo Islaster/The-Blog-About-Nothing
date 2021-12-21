@@ -13,7 +13,7 @@ const methodOverride = require("method-override");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const blogsRouter = require("./routes/blogs");
-
+const comsRouter = require("./routes/comments");
 var app = express();
 
 // view engine setup
@@ -44,6 +44,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/blogs", blogsRouter);
+app.use('/', comsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

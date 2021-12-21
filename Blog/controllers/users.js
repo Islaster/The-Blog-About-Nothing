@@ -1,5 +1,12 @@
+const Blog = require("../models/blogs");
 module.exports = { index };
 
 function index(req, res) {
-  res.render("users/index", { title: "User", style: "style.css" });
+  Blog.find({}, function (err, blogs) {
+    res.render("users/index", {
+      title: "Profile",
+      style: "style.css",
+      blogs,
+    });
+  });
 }
