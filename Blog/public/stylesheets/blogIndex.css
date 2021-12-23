@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #282a35;
+}
+
+nav > a {
+  display: inline-block;
+  font-size: larger;
+  padding: 2vh;
+  text-decoration: none;
+  color: white;
+}
+nav {
+  background-color: #282a35;
+}
+
+nav a:hover {
+  background: linear-gradient(rgba(112, 41, 99, 0), rgba(112, 41, 99, 1));
+  color: white;
+}
+
+tbody {
+  background-color: grey;
+}
+
+.table {
+  border-spacing: 2vh;
+}
+
+.active {
+  background: linear-gradient(rgba(112, 41, 99, 0), rgba(112, 41, 99, 0.7));
+}
+
+.login img {
+  height: 2vh;
+}
+.btn-light {
+  color: red;
+}
+
+.btn-light:hover {
+  background-color: red;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: White;
+}
+
+tr {
+  color: white;
+}

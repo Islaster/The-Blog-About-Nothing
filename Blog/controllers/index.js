@@ -3,5 +3,5 @@ module.exports = {
 };
 
 function index(req, res) {
-  res.render("index", { title: "Welcome", style: "style.css" });
+  res.render("index", { title: "Welcome", style: "index.css" });
 }

@@ -1,32 +1,35 @@
 <%- include('../partials/header')%>
 
 <form action="/blogs" method="POST">
-  <div class="form-floating">
-    <input
-      type="text"
-      name="title"
-      class="form-control"
-      id="floatingInput"
-      placeholder="Title"
-    />
-    <label for="floatingInput">Title</label>
+  <div class="container">
+    <div class="form-floating">
+      <input
+        type="text"
+        name="title"
+        class="form-control"
+        id="floatingInput"
+        placeholder="Title"
+      />
+      <label for="floatingInput">Title</label>
+    </div>
+    <textarea
+      name="snippet"
+      class="snippet"
+      cols="60"
+      rows="3"
+      placeholder="Small description of blog"
+      required
+    ></textarea>
+    <textarea
+      name="content"
+      class="content"
+      cols="60"
+      rows="10"
+      placeholder="Speak Your Mind"
+      required
+    ></textarea>
+    <button class="btn btn-info" type="submit">Create Blog</button>
   </div>
-  <textarea
-    name="snippet"
-    id=""
-    cols="15"
-    rows="5"
-    placeholder="Small description of blog"
-    required
-  ></textarea>
-  <textarea
-    name="content"
-    cols="30"
-    rows="10"
-    placeholder="Speak Your Mind"
-    required
-  ></textarea>
-  <button type="submit">Create Blog</button>
 </form>
 
 <%- include('../partials/footer')%>

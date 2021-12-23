@@ -4,26 +4,25 @@ module.exports = {
   new: newBlog,
   create,
   show,
-  delete: deleteBlog
+  delete: deleteBlog,
 };
 
 function index(req, res) {
   Blog.find({}, function (err, blogs) {
     res.render("blogs/index", {
       title: "All Blogs",
-      style: "style.css",
+      style: "blogIndex.css",
       blogs,
     });
   });
 }
 
 function newBlog(req, res) {
-  res.render("blogs/new", { title: "Create Blog", style: "style.css" });
+  res.render("blogs/new", { title: "Create Blog", style: "new.css" });
 }
 
 function create(req, res) {
   const blog = new Blog(req.body);
-  console.log(req.user);
   blog.author = req.user._id;
 
   blog.save(function (err) {
@@ -43,7 +42,7 @@ function show(req, res) {
     }
     res.render("blogs/show", {
       title: `${blog.title}`,
-      style: "style.css",
+      style: "show.css",
       blog,
     });
   });
@@ -52,9 +51,10 @@ function show(req, res) {
 function deleteBlog(req, res) {
   Blog.findOneAndDelete(
     // Ensue that the blog was created by the logged in user
-    {_id: req.params.id, author: req.user._id}, function(err) {
+    { _id: req.params.id, author: req.user._id },
+    function (err) {
       // Deleted blog, so must redirect to index
-      res.redirect('/blogs/All');
+      res.redirect("/blogs/All");
     }
   );
 }

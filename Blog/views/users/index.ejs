@@ -4,21 +4,31 @@
 </figure>
 <figcaption>
   <h4><%= user.name%></h4>
+  <h4>Created: <%= user.createdAt.toLocaleDateString()%></h4>
 </figcaption>
-<table>
-  <thead>
-    <tr>
-      <th>Blogs</th>
-      <th>Comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%blogs.forEach(function(b){ if(b.author === user._id){%>
-    <tr>
-      <td><%= b.title%></td>
-      <%}%>
-    </tr>
-    <%})%>
-  </tbody>
-</table>
-<%- include('../partials/footer')%>
+<div class="container">
+  <div class="blogs">
+    <div class="header">
+      <h3>My Blogs</h3>
+    </div>
+    <div class="myStuff">
+      <%blogs.forEach(function(b){ %>
+      <div>
+        <p><%= b.title%></p>
+      </div>
+      <%});%>
+    </div>
+  </div>
+  <div class="comments">
+    <div class="header">
+      <h3>My Comments</h3>
+    </div>
+    <div class="myStuff">
+      <%myComments.forEach(function(c){ %>
+      <div>
+        <p><%= c.content%></p>
+      </div>
+    </div>
+  </div>
+</div>
+<%});%> <%- include('../partials/footer')%>

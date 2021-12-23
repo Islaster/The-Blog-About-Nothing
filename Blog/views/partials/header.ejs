@@ -15,7 +15,7 @@
         <a href="/blogs/All" <%- title === 'All Blogs' ? 'class="active"' : '' %>>All Blogs</a>
         <% if(user){ %>
             <a href="/blogs/new" <%- title === 'Create Blog' ? 'class="active"' : '' %>>Create Blog</a>
-            <a href="/users">profile</a>
+            <a href="/users" <%- title === 'Profile' ? 'class="active"' : '' %>>Profile</a>
             <a href="/logout">Log Out</a>
         <%}else { %>
             <a href="/auth/google" class="login">Log In&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
